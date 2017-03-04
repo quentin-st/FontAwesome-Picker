@@ -1,5 +1,5 @@
 /**
- * MaterialDesignIcons-Picker
+ * FontAwesome-Picker
  * Tooltip component
  */
 (function($) {
