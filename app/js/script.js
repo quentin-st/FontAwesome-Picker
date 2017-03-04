@@ -12,9 +12,8 @@
 
     FontAwesomePicker.prototype = {
         ui: {},
-        version: '4.7.0',
         defaults: {
-            cdnUrl: 'https://maxcdn.bootstrapcdn.com/font-awesome/{version}/css/font-awesome.min.css'
+            cdnUrl: 'https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css'
         },
 
         init: function() {
@@ -203,9 +202,9 @@
             var self = this;
 
             $.ajax({
-                url: this.settings.cdnUrl.replace('{version}', this.version),
+                url: this.settings.cdnUrl,
                 success: function(data) {
-                    window.FontAwesomePicker.icons = self.parseCSSFile(data);
+                    window.FontAwesomePicker = self.parseCSSFile(data);
                     self.ui.icons.loading.remove();
 
                     self.inflateUI();
@@ -214,9 +213,14 @@
         },
 
         parseCSSFile: function(cssFileContent) {
-            var iconsRegex = /((?:\.fa-[a-z-\d]+:before,?)+){content:"\\(f[a-z\d]+)"}/g,
+            var versionRegex = /Font Awesome ((?:\d+\.?)+)/,
+                iconsRegex = /((?:\.fa-[a-z-\d]+:before,?)+){content:"\\(f[a-z\d]+)"}/g,
                 selectorsRegex = /\.fa-([a-z-\d]+):before/g;
 
+            // Find version number
+            var version = versionRegex.exec(cssFileContent)[1];
+
+            // Find icons
             var icons = [];
 
             var iconMatch,
@@ -262,7 +266,10 @@
                 }
             });
 
-            return icons;
+            return {
+                version: version,
+                icons: icons
+            };
         },
 
         inflateUI: function() {
@@ -303,7 +310,7 @@
                 }
             });
 
-            this.ui.header.version.text('v' + this.version);
+            this.ui.header.version.text('v' + window.FontAwesomePicker.version);
 
             this.ui.header.filter.focus();
         },
