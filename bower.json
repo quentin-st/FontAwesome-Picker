@@ -1,0 +1,14 @@
+{
+  "name": "fontawesome-picker",
+  "homepage": "https://github.com/chteuchteu/FontAwesome-Picker",
+  "authors": [
+    "Quentin Stoeckel <chteuchteu@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "GPL-V2",
+  "private": true,
+  "dependencies": {
+    "material-scss-colors": "^1.1.2"
+  }
+}

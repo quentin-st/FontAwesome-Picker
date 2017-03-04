@@ -1,0 +1,4 @@
+.idea
+release/
+bower_components/
+app/css/style.css*

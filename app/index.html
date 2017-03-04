@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FontAwesome Picker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header class="header">
+    <div class="title">
+        <h1><i class="fa fa-fw fa-flag"></i> FontAwesome</h1>
+        <small id="version"></small>
+    </div>
+    <div class="filter-wrap">
+        <input id="filter" type="text" placeholder="Search&hellip;" />
+        <i id="filter-clear" class="fa fa-times hidden"></i>
+    </div>
+</header>
+
+<div class="content">
+    <div id="loading"><i class="mdi mdi-spinner"></i> Loading&hellip;</div>
+    <div id="icons-list" class="icons"></div>
+
+    <div class="icon-properties-wrap">
+        <div id="icon-properties">
+            <i id="icon-icon"></i>
+
+            <div class="properties">
+                <span id="icon-name">&nbsp;</span>
+                <pre id="icon-class">fa <span>fa-</span></pre>
+                <p class="icon-more">
+                    <span id="icon-codepoint"></span>
+                </p>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="left">
+        <a id="action-open-in-fontawesome" class="btn-sm-round" href="http://fontawesome.io" target="_blank">
+            <i class="fa fa-fw fa-external-link"></i>
+        </a>
+        <a id="action-random" class="btn-sm-round" href="#">
+            <i class="fa fa-fw fa-random"></i>
+        </a>
+        <a id="action-random-colors" class="btn-sm-round" href="#">
+            <i class="fa fa-fw fa-tint"></i>
+        </a>
+    </div>
+    <div class="right">
+        <a id="action-author" class="btn-sm-round" href="https://www.s-quent.in" target="_blank">
+            <i class="fa fa-fw fa-user-circle-o"></i>
+        </a>
+        <a id="action-github" class="btn-sm-round" href="https://github.com/chteuchteu/FontAwesome-Picker" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+        </a>
+    </div>
+    <div class="clearfix"></div>
+</footer>
+
+<script src="vendor/jquery-3.1.0.min.js"></script>
+<script src="js/component-tooltip.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
