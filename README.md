@@ -1,7 +1,6 @@
 # FontAwesome-Picker
 *A cute [FontAwesome](http://fontawesome.io/icons/) icon picker for your web browser*
 
-[![Download on Chrome Web Store](doc/download-chrome-web-store.png)](https://chrome.google.com/webstore/detail/materialdesignicons-picke/edjaedpifkihpjkcgknfokmibkoafhme)
-[![Download for Firefox](doc/download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/materialdesignicons-picker/)
+[![Download on Chrome Web Store](doc/download-chrome-web-store.png)](https://chrome.google.com/webstore/detail/fontawesome-picker/jifmidhohocnlbpadnpponnngggaeehh)
 
-![MaterialDesignIcons-Picker](doc/screenshot.png)
+![FontAwesome-Picker](doc/screenshot.png)
