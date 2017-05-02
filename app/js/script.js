@@ -225,32 +225,27 @@
 
             var iconMatch,
                 selectorsMatch,
-                mainName = null,
                 nameAliases = [],
-                searchable;
+                searchable = [],
+                currentSelector = null;
             while (iconMatch = iconsRegex.exec(cssFileContent)) {
                 var selectors = iconMatch[1];
 
                 while (selectorsMatch = selectorsRegex.exec(selectors)) {
-                    if (mainName === null) {
-                        mainName = selectorsMatch[1];
-                        searchable = mainName;
-                    }
-                    else {
-                        nameAliases.push(selectorsMatch[1]);
-                        searchable += ' ' + selectorsMatch[1];
-                    }
+                    currentSelector = selectorsMatch[1];
+                    searchable.push(currentSelector);
                 }
 
                 icons.push({
-                    name: mainName,
+                    name: currentSelector,
                     aliases: nameAliases,
                     codepoint: iconMatch[2],
-                    searchable: searchable
+                    searchable: searchable.join(' ')
                 });
 
-                mainName = null;
-                nameAliases.length = 0;
+                nameAliases = [];
+                searchable = [];
+                currentSelector = null;
             }
 
             // Sort icons alphabetically
