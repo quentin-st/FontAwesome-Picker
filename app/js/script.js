@@ -38,7 +38,8 @@
                     icon: $('#icon-icon'),
                     name: $('#icon-name'),
                     className: $('#icon-class').find('span'),
-                    codepoint: $('#icon-codepoint')
+                    codepoint: $('#icon-codepoint'),
+                    aliases: $('#icon-aliases')
                 },
                 footer: {
                     openInFontAwesome: $('#action-open-in-fontawesome'),
@@ -221,8 +222,12 @@
 
                 while (selectorsMatch = selectorsRegex.exec(selectors)) {
                     currentSelector = selectorsMatch[1];
+                    nameAliases.push(currentSelector);
                     searchable.push(currentSelector);
                 }
+
+                // Remove main name (latest selector) from aliases
+                nameAliases.pop();
 
                 icons.push({
                     name: currentSelector,
@@ -319,8 +324,8 @@
                 this.ui.properties.className.text('fa-' + className);
                 this.ui.properties.icon[0].classList = 'fa fa-fw fa-' + className;
                 this.ui.properties.codepoint.text(iconMeta.codepoint);
-                this.ui.footer.openInFontAwesome.attr('href',
-                    'http://fontawesome.io/icon/' + className);
+                this.ui.properties.aliases.text(iconMeta.aliases.join(', '));
+                this.ui.footer.openInFontAwesome.attr('href', 'http://fontawesome.io/icon/' + className);
 
                 if (ensureVisible) {
                     var offset = iconElem.offset().top - iconElem.parent().offset().top;
@@ -328,13 +333,16 @@
 
                     var scrollTop = iconElem.parent().scrollTop(),
                         initialScrollTop = scrollTop;
-                    if (offset - 5 < 0)
+                    if (offset - 5 < 0) {
                         scrollTop += offset - 5;
-                    else if (offset + iconElemHeight > iconElem.parent().height())
+                    }
+                    else if (offset + iconElemHeight > iconElem.parent().height()) {
                         scrollTop += offset + iconElemHeight - iconElem.parent().height();
+                    }
 
-                    if (scrollTop != initialScrollTop)
+                    if (scrollTop != initialScrollTop) {
                         iconElem.parent().scrollTop(scrollTop);
+                    }
                 }
             }
 
