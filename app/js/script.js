@@ -175,18 +175,6 @@
                 localStorage.setItem('random-colors', randomColors);
             });
 
-            // Change accent color on properties icon click
-            this.ui.properties.icon.click(function() {
-                var i = self.ui.colors.indexOf(self.ui.body.attr('data-accent'))+1;
-                var accentColor = self.ui.colors[i > self.ui.colors.length-1 ? 0 : i];
-                self.ui.body.attr('data-accent', accentColor);
-
-                localStorage.setItem('color-accent', accentColor);
-            });
-            var accentColor = localStorage.getItem('color-accent');
-            accentColor = accentColor || 'orange';
-            this.ui.body.attr('data-accent', accentColor);
-
             // Restore "random colors" state
             this.setRandomIconsColors((localStorage.getItem('random-colors') || 'false') == 'true');
 
