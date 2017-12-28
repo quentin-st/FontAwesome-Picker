@@ -1,4 +1,5 @@
-.idea
-release/
-bower_components/
-app/css/style.css*
+/.idea
+/release/
+/node_modules/
+/dist/app.js
+/dist/main.css

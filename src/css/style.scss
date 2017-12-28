@@ -1,0 +1,8 @@
+/**
+ * FontAwesome-Picker
+ */
+
+$color-primary: #1fa67a;
+$color-primary-dark: darken($color-primary, 10);
+
+@import '~vue-icons-picker/scss/vue-icons-picker';
